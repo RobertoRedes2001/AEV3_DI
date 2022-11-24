@@ -1,12 +1,9 @@
 import React from 'react';
 import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
   StyleSheet,
   Text,
   useColorScheme,
-  View,
+  View
 } from 'react-native';
 
 import {
@@ -17,7 +14,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import {Provider as PaperProvider} from 'react-native-paper';
+import {Provider as PaperProvider, TextInput} from 'react-native-paper';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -27,13 +24,52 @@ const App = () => {
   };
 
   const nom = (textAMostrar) => {
-    
     return <Text style={{color:'blue',fontSize:25}}>{textAMostrar}</Text>;
   };
 
+  const [text, setText] = React.useState("");
+
+  const dades = (arr,estil) => {
+    let mapa;
+    if(estil){
+      mapa = arr.map((value)=>
+        <View style={styles.florida}> 
+          <TextInput  
+          style={{width:408,height:50}}
+          mode="outlined"
+          placeholder={value}
+          placeholderTextColor="white"
+          label={value}
+          value={text}
+          onChangeText={text => setText(text)}
+          />
+        </View>
+      );
+    }else{
+      mapa = arr.map((value)=>
+        <View style={styles.upv}> 
+          <TextInput  
+          style={{width:408,height:50}}
+          mode="outlined"
+          placeholder={value}
+          placeholderTextColor="orange"
+          label={value}
+          value={text}
+          onChangeText={text => setText(text)}
+          />
+        </View>
+      );
+    }
+    
+    return mapa 
+  }
+
+  let arrayDades = ["Nombre","Apellido"];
+  let estilo = true;
   return (
     <PaperProvider>
         {nom("Oberto")}
+        {dades(arrayDades,estilo)}
     </PaperProvider>
   );
 };
@@ -54,6 +90,23 @@ const styles = StyleSheet.create({
   },
   highlight: {
     fontWeight: '700',
+  },
+  upv:{
+    backgroundColor: 'purple',
+    fontSize: 10,
+    fontWeight: '600',
+    padding: 4,
+    paddingLeft: 12,
+    textAlign: 'left',
+    color: 'grey',
+    },
+  florida: {
+    backgroundColor: 'red',
+    fontSize: 12,
+    fontWeight: '600',
+    padding: 4,
+    paddingRight: 12,
+    textAlign: 'right',
   },
 });
 
