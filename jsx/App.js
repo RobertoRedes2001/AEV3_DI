@@ -8,7 +8,7 @@ import {
   View,
 } from 'react-native';
 
-import {Text} from 'react-native-paper';
+import {Text, TextInput} from 'react-native-paper';
 
 import {
   Colors,
@@ -20,15 +20,27 @@ import {
 
 import {Provider as PaperProvider} from 'react-native-paper';
 
-const nom= (textAMostrar,estils)=>{
-  return  <Text styles={estils}>{textAMostrar}</Text>
-}
+const nom = (textAMostrar, estils) => {
+  return <Text styles={estils}>{textAMostrar}</Text>;
+};
+
+const dades = (unArray) => {
+  return unArray.map((unElementDeLArray, i, array) => {
+    
+    return(<TextInput 
+    label={unElementDeLArray}
+    placeholder={unElementDeLArray}
+    key={'id_'+i}
+    />)
+  });
+};
 
 const App = () => {
-
+  const arrayDades = ['Email', 'Nom', 'Cognoms', 'Telefon'];
   return (
     <PaperProvider>
-       {nom("Pablo Vicente Rozalén",styles.nom)}
+      {nom('Pablo Vicente Rozalén', styles.nom)}
+      {dades(arrayDades)}
     </PaperProvider>
   );
 };
