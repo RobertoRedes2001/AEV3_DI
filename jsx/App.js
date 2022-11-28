@@ -20,15 +20,15 @@ import {
 
 import {Provider as PaperProvider} from 'react-native-paper';
 
-const nom= (textAMostrar)=>{
-  return  <Text>{textAMostrar}</Text>
+const nom= (textAMostrar,estils)=>{
+  return  <Text styles={estils}>{textAMostrar}</Text>
 }
 
 const App = () => {
 
   return (
     <PaperProvider>
-       {nom("Pablo Vicente Rozalén Fernández")}
+       {nom("Pablo Vicente Rozalén",styles.nom)}
     </PaperProvider>
   );
 };
@@ -49,6 +49,11 @@ const styles = StyleSheet.create({
   },
   highlight: {
     fontWeight: '700',
+  },
+  nom: {
+    color: 'red',
+    fontSize: 25,
+    fontWeight: 'bold',
   },
 });
 
