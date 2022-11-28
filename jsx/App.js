@@ -20,15 +20,15 @@ import {
 
 import {Provider as PaperProvider} from 'react-native-paper';
 
-const nom= ()=>{
-  return  <Text>Pablo Vicente Rozalén Fernández</Text>
+const nom= (textAMostrar)=>{
+  return  <Text>{textAMostrar}</Text>
 }
 
 const App = () => {
 
   return (
     <PaperProvider>
-       {nom()}
+       {nom("Pablo Vicente Rozalén Fernández")}
     </PaperProvider>
   );
 };
