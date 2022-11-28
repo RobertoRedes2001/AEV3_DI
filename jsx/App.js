@@ -21,7 +21,7 @@ import {
 import {Provider as PaperProvider} from 'react-native-paper';
 
 const nom= ()=>{
-  return  <Text>PBLO</Text>
+  return  <Text>Pablo Vicente Rozalén Fernández</Text>
 }
 
 const App = () => {
