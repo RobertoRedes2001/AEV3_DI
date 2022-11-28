@@ -14,7 +14,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import {Provider as PaperProvider, TextInput} from 'react-native-paper';
+import {Provider as PaperProvider, TextInput, Button} from 'react-native-paper';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -28,6 +28,7 @@ const App = () => {
   };
 
   const [text, setText] = React.useState("");
+  const isAdmin = true;
 
   const dades = (arr,estil) => {
     let mapa;
@@ -64,12 +65,46 @@ const App = () => {
     return mapa 
   }
 
+  const moduls2Dam = [
+    { nom: 'DIN', professor: 'Manel', hores: 120 },
+    { nom: 'ADA', professor: 'Roberto', hores: 120 },
+    { nom: 'PMDM', professor: 'Paco', hores: 100 },
+    { nom: 'PSP', professor: 'Roberto', hores: 60 },
+    { nom: 'SGE', professor: 'Belén', hores: 100 },
+    { nom: 'Anglés', professor: 'Caterina', hores: 40 },
+    { nom: 'EIE', professor: 'Ana', hores: 60 },
+    ];
+  
+  let mapa = moduls2Dam.map((value, index) => {
+    if(index%2==0){
+      return (
+      <View style={{backgroundColor:"#FE02F1"}}>
+        <Text>{index+1}</Text>
+        <Text>{value.nom}</Text>
+        <Text>{value.professor}</Text>
+        <Text>{value.hores}</Text>
+      </View> )
+    }else{
+      return( 
+      <View style={{backgroundColor:"#F67BB3"}}>
+        <Text>{index+1}</Text>
+        <Text>{value.nom}</Text>
+        <Text>{value.professor}</Text>
+        <Text>{value.hores}</Text>
+      </View>)
+    }
+  });
+    
   let arrayDades = ["Nombre","Apellido"];
   let estilo = true;
   return (
     <PaperProvider>
-        {nom("Oberto")}
-        {dades(arrayDades,estilo)}
+      {nom("Oberto")}
+      {dades(arrayDades,estilo)}
+      <Button disabled={isAdmin} icon="format-list-bulleted" mode="contained">
+        INFORMES
+      </Button>
+      {mapa}
     </PaperProvider>
   );
 };
