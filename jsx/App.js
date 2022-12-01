@@ -22,6 +22,7 @@ import {
 }from 'react-native-paper';
 
 import Nom from './components/Nom';
+import Email from './components/EntradaDeEmail';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -32,7 +33,8 @@ const App = () => {
 
   return (
     <View style={backgroundStyle}>
-      <Nom nom={"Manel"} estilo={styles.estilDeText}></Nom>
+      <Nom nom={"Manel"} estilo={styles.estilDeText}/>
+      <Email/>
     </View>
   );
 };
