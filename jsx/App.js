@@ -23,6 +23,7 @@ import {
 
 import Nom from './components/Nom';
 import Email from './components/EntradaDeEmail';
+import Telf from './components/Telefon';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -35,6 +36,7 @@ const App = () => {
     <View style={backgroundStyle}>
       <Nom nom={"Manel"} estilo={styles.estilDeText}/>
       <Email/>
+      <Telf/>
     </View>
   );
 };
