@@ -5,6 +5,7 @@ import { TextInput, HelperText } from 'react-native-paper';
 function EntradaDeEmail(){
   
   const [email, setEmail] = useState('');
+  const [icono, setIcono] = useState('');
   const [checkValidEmail, setCheckValidEmail] = useState(false);
   
   const handleCheckEmail = text => {
@@ -14,8 +15,10 @@ function EntradaDeEmail(){
     setEmail(text);
     if (re.test(text) || regex.test(text)) {
       setCheckValidEmail(false);
+      setIcono("check");
     } else {
       setCheckValidEmail(true);
+      setIcono("");
     }
   };
 
@@ -26,7 +29,7 @@ function EntradaDeEmail(){
           placeholder="Email"
           value={email}
           onChangeText={text => handleCheckEmail(text)}
-          right={<TextInput.Icon icon="eye" />}
+          right={<TextInput.Icon icon={icono} iconColor='green'/>}
         />
      
       {checkValidEmail ? (
