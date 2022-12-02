@@ -35,8 +35,8 @@ const App = () => {
   return (
     <View style={backgroundStyle}>
       <Nom nom={"Manel"} estilo={styles.estilDeText}/>
-      <Email/>
-      <Telf/>
+      <Email nom={"Email"} indicacion={"Indique el seu correo"}/>
+      <Telf nom={"Telefon"} indicacion={"+xx xxx xx xx xx o xxx xx xx xx"}/>
     </View>
   );
 };

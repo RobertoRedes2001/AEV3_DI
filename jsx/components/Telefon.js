@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { TextInput, HelperText } from 'react-native-paper';
 
-function EntradaDeTelefon(){
+function EntradaDeTelefon(props){
   
   const [telefon, setTelefon] = useState('');
   const [icono, setIcono] = useState('');
@@ -12,7 +12,7 @@ function EntradaDeTelefon(){
   const handleCheckTelefon = text => {
 
     let regex = /^(\+{1}[0-9]{2})?[0-9]{9}$/;
-    
+
     setTelefon(text);
     if(text.startsWith('+')){
       setLimite(13);
@@ -33,7 +33,8 @@ function EntradaDeTelefon(){
     <View>
       <TextInput
           keyboardType='phone-pad'
-          placeholder="Telefon"
+          placeholder={props.indicacion}
+          label={props.nom}
           maxLength={limite}
           value={telefon}
           onChangeText={text => handleCheckTelefon(text)}

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { TextInput, HelperText } from 'react-native-paper';
 
-function EntradaDeEmail(){
+function EntradaDeEmail(props){
   
   const [email, setEmail] = useState('');
   const [icono, setIcono] = useState('');
@@ -26,7 +26,8 @@ function EntradaDeEmail(){
     <View>
       <TextInput
           keyboardType='email-address'
-          placeholder="Email"
+          placeholder={props.indicacion}
+          label={props.nom}
           value={email}
           onChangeText={text => handleCheckEmail(text)}
           right={<TextInput.Icon icon={icono} iconColor='green'/>}
