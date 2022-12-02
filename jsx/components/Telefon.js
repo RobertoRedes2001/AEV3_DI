@@ -11,28 +11,20 @@ function EntradaDeTelefon(){
   
   const handleCheckTelefon = text => {
 
-    let regex = !/^\+\d{2}([ \/\.])\d{9}$/;
-    let re = !/^[0-9]{9}$/;
-
+    let regex = /^(\+{1}[0-9]{2})?[0-9]{9}$/;
+    
     setTelefon(text);
     if(text.startsWith('+')){
-        if (regex.test(text)) {
-            setCheckValidTelefon(false);
-            setIcono("check");
-            setLimite(13);
-            } else {
-            setCheckValidTelefon(true);
-            setIcono("");
-            }
+      setLimite(13);
     }else{
-        if (re.test(text)) {
-            setCheckValidTelefon(false);
-            setIcono("check");
-            setLimite(9);
-          } else {
-            setCheckValidTelefon(true);
-            setIcono("");
-          }
+      setLimite(9);
+    }
+    if (regex.test(text)) {
+      setCheckValidTelefon(false);
+      setIcono("check");
+    } else {
+      setCheckValidTelefon(true);
+      setIcono("");
     }
     
   };
